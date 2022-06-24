@@ -1,6 +1,6 @@
 const id = window.location.search.split("?").join("");
 
-async function getPhotographerData() {
+const getPhotographerData = async () => {
   const data = await fetch('../data/photographers.json').then(res => res.json());
   const photographer = data.photographers.filter(photographer => photographer.id == id);
   const photographerMedia = data.media.filter(file => file.photographerId == id);
@@ -15,7 +15,7 @@ async function getPhotographerData() {
 // Puis les appler dans init(), qui fait tout!
 
 
-async function init() {
+const init = async () => {
   const {photographer, photographerMedia} = await getPhotographerData();
   console.log(photographer, photographerMedia);
 }
