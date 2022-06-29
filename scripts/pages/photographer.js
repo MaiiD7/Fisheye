@@ -10,14 +10,20 @@ const getPhotographerData = async () => {
       photographerMedia: photographerMedia})
 }
 
+const displayPhotographerData = async (photographer, photographerMedia) => {
+  const photographerData = photographerPageFactory(photographer);
+  const mediaData = MediaFactory(photographerMedia);
+  photographerData.getPhotographerPageDOM();
+}
 
 // Ecrire les fonctions qui utilisent et modifient les données içi 
 // Puis les appler dans init(), qui fait tout!
 
 
-const init = async () => {
+const init = async () =>  {
   const {photographer, photographerMedia} = await getPhotographerData();
-  console.log(photographer, photographerMedia);
+  console.log(photographer,photographerMedia);
+  displayPhotographerData(photographer[0], photographerMedia);
 }
 
 init();

@@ -1,4 +1,4 @@
-const photographerFactory = (data) => {
+const photographersFactory = (data) => {
     const { name, id, city, country, tagline, price, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
@@ -10,7 +10,7 @@ const photographerFactory = (data) => {
         section.innerHTML = `
         <a id=${id} href="../../photographer.html?${id}">
             <article>
-            <img src="${picture}" alt="id_picture">
+            <img src="${picture}" alt="${name}">
             <h2>${name}</h2>
             </article>
         </a>
@@ -27,5 +27,13 @@ const photographerFactory = (data) => {
 
         return (section);
     }
-    return { name, picture, getUserCardDOM }
+
+    const getPhotographerPageDOM = () => {
+
+        const header = document.querySelector('photograph-header');
+
+        return (header);
+    }
+
+    return { name, picture, getUserCardDOM, getPhotographerPageDOM }
 }
