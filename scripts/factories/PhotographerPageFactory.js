@@ -6,6 +6,7 @@ const photographerPageFactory = (photographer, photographerMedia) => {
   const getPhotographerPageDOM = () => {
 
     const header = document.querySelector('.photograph-header')
+    const contactName = document.getElementById('contact-name')
     
 
     header.innerHTML = `
@@ -19,7 +20,10 @@ const photographerPageFactory = (photographer, photographerMedia) => {
   
       <img src="${picture}" alt="${name}">
     `
+    contactName.innerHTML =name;
   }
+
+  
 
   return { getPhotographerPageDOM }
 }

@@ -13,6 +13,8 @@ body {
     font-family: "DM Sans", sans-serif;
 }
 
+/****** Photographer header ******/
+
 .photograph-header {
     display: flex;
     justify-content: space-between;
@@ -23,11 +25,11 @@ body {
     padding: 0 50px;
 }
 
-article {
+.photograph-header article {
     padding-bottom: 40px;
 }
 
-article h1 {
+.photograph-header article h1 {
     width: fit-content;
     margin:0;
     color: #D3573C;
@@ -36,14 +38,14 @@ article h1 {
     margin-bottom: 10px;
 }
 
-article h3 {
+.photograph-header article h3 {
     color: #901C1C;
     font-weight: 400;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-article p {
+.photograph-header article p {
     font-weight: 400;
     font-size: 15px;
 }
@@ -67,62 +69,93 @@ article p {
     border-radius: 100%;
 }
 
-/***** Form Modal *****/
+/****** Media *******/
 
-#contact_modal {
-    display: none;
-}
-
-.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
+.medias-section {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+    flex-wrap: wrap;
+    margin: 0 100px;
 }
 
-.modal header {
-    justify-content: space-between;
-    width: 100%;
+.media-container {
+    width: 350px;
+    height: 350px;
+    margin: 50px 0;
 }
 
-.modal header img {
+.media-container img{
+    width: 350px;
+    height: 300px;
+}
+
+.media-container img,
+.media-container video
+{
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
-
-form {
+.media-container div{
+    height: 50px;
     display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 24px;
+    color: #911C1C;
+    align-items: center;
 }
 
-form label p {
-    color: #312E2E;
-    font-size: 36px;
+.media-container i {
+    font-size: 20px;
+    margin-left: 5px;
+    cursor: pointer;
 }
 
-form div {
+/******* Aside *******/
+
+.infos {
+    height: 50px;
+    width: 350px;
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    padding: 0 15px;
+    
+    background-color: #DB8876;
+    border-radius: 5px 5px 0 0;
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+.infos div {
+    display: flex;
+    align-items: center;
+}
+
+.infos p {
+    font-size: 24px;
+}
+
+.infos i {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* Responsivness of photographe header */
+
+@media screen and (max-width: 1150px ) {
+    .photograph-header {
+        position: relative;
+    }
+    .photograph-header .contact_button {
+        position: absolute;
+        bottom: 0px;
+        left: 40px;
+    }
 }

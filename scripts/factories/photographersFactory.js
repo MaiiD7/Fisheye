@@ -8,7 +8,7 @@ const photographersFactory = (data) => {
         const section = document.createElement('section');
 
         section.innerHTML = `
-        <a id=${id} href="../../photographer.html?${id}">
+        <a id=${id} href="../../photographer.html?photographer-id=${id}">
             <article>
             <img src="${picture}" alt="${name}">
             <h2>${name}</h2>
