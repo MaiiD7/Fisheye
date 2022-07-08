@@ -5,5 +5,56 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#lightboxMedia {
+  width: 50vw;
+  height: 88vh;
+  margin: 6vh auto;
+}
+
+#lightboxMedia img, 
+#lightboxMedia video {
+  width: 50vw;
+  height: 88vh;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.3);
+}
+
+.close {
+  position: absolute;
+  top: 7vh;
+  right: 20vw;
+  font-size: 40px;
+  color: #911C1C;
+  cursor: pointer;
+}
+
+.previous,
+.next {
+  position: absolute;
+  color: white;
+  top: 50vh;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: #911C1C;
+  cursor: pointer;
+}
+
+.previous {
+  left: 20vw;
+}
+
+.next {
+  right: 20vw;
+}
+
+#title {
+  position: absolute;
+  bottom: 1vh;
+  left: 25vw;
+  font-size: 20px;
+  color: #911C1C;
 }

@@ -1,4 +1,4 @@
-const photographerPageFactory = (photographer, photographerMedia) => {
+const PhotographerPageFactory = (photographer, photographerMedia) => {
 
   const { name, id, city, country, tagline, price, portrait } = photographer;
   const picture = `assets/photographers/${portrait}`;

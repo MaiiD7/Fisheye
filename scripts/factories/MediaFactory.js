@@ -5,56 +5,67 @@ const MediaFactory = (photographer,photographerMedias) => {
   const {name, price} = photographer;
   let totalLikes = 0;
 
-  section.classList.add('medias-section');
+  section.classList.add('medias-section')
   aside.classList.add('infos')
 
   main.appendChild(section);
   section.appendChild(aside);
+
+  const mediaDisplay = () => {
+
+    photographerMedias.forEach((photographerMedia) => {
+      const article = document.createElement('article');  
+      const {image, video, title, likes} = photographerMedia;
+      const firstName = name.substring(0,name.indexOf(' '));
   
-  photographerMedias.forEach((photographerMedia) => {
-    const article = document.createElement('article');  
-    const {image, video, title, likes} = photographerMedia;
-    const firstName = name.substring(0,name.indexOf(' '));
-
-    article.classList.add('media-container')
-   
-    if (image) {
-      article.innerHTML = `
-        <img src="assets/images/${firstName}/${image}" alt="${image}" class="images">
-        <div>
-          <h5>${title}</h5>
+      article.classList.add('media-container')
+     
+      if (image) {
+        article.innerHTML = `
+          <img src="assets/images/${firstName}/${image}" alt="${image}" class="images">
           <div>
-            ${likes}
-            <i class="fa-solid fa-heart"></i>
+            <h5>${title}</h5>
+            <div>
+              <p>${likes}</p>
+              <i class="fa-solid fa-heart" onclick="toggleLike(event)"></i>
+            </div>
           </div>
-        </div>
-      `
-    } else if (video) {
-      article.innerHTML = `
-        <video width="350" height="300">
-         <source src="assets/images/${firstName}/${video}" type="video/mp4" alt="${video}">
-        </video>
-        <div>
-          <h5>${title}</h5>
+        `
+      } else if (video) {
+        article.innerHTML = `
+          <video width="350" height="300" class="images">
+           <source src="assets/images/${firstName}/${video}" type="video/mp4" alt="${video}">
+          </video>
           <div>
-            ${likes}
-            <i class="fa-solid fa-heart"></i>
+            <h5>${title}</h5>
+            <div>
+              <div>${likes}</div>
+              <i class="fa-solid fa-heart" onclick="toggleLike(event)"></i>
+            </div>
           </div>
-        </div>
-      `
-    }
+        `
+      }
+  
+      section.appendChild(article);
+      totalLikes += likes;
+    })
+  
+    aside.innerHTML = `
+      <div>
+        <p id="totalLikes">${totalLikes}</p>
+        <i class="fa-solid fa-heart"></i>
+      </div>
+      <p>${price}€/jour</p>
+    `
+  }
 
-    section.appendChild(article);
-    totalLikes += likes;
+  return { mediaDisplay }
+}
 
-    return (article,totalLikes);
-  })
+function toggleLike(event) {
+  let likeCounter = event.target.previousElementSibling
+  let totalLikes = document.getElementById('totalLikes')
 
-  aside.innerHTML = `
-    <div>
-      <p>${totalLikes}</p>
-      <i class="fa-solid fa-heart"></i>
-    </div>
-    <p>${price}€/jour</p>
-  `
+  likeCounter.innerHTML = Number(likeCounter.innerHTML) + 1;
+  totalLikes.innerHTML = Number(totalLikes.innerHTML) + 1;
 }

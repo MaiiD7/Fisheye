@@ -64,7 +64,7 @@ form.addEventListener("submit", (e) => {
       }
     });
   
-    // Submit form if validated
+    // Submit form if validated (log entries in console)
     if (validationFlag) {
       closeModal();
       for (var entrie of formData.entries()) {

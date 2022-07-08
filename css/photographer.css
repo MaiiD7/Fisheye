@@ -66,6 +66,8 @@ body {
 .photograph-header img {
     height: 250px;
     width: 250px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 100%;
 }
 
