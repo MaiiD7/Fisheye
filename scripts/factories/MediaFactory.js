@@ -17,6 +17,7 @@ const MediaFactory = (photographer,photographerMedias) => {
       const article = document.createElement('article');  
       const {image, video, title, likes} = photographerMedia;
       const firstName = name.substring(0,name.indexOf(' '));
+      let likeFlag = false;
   
       article.classList.add('media-container')
      
@@ -27,7 +28,7 @@ const MediaFactory = (photographer,photographerMedias) => {
             <h5>${title}</h5>
             <div>
               <p>${likes}</p>
-              <i class="fa-solid fa-heart" onclick="toggleLike(event)"></i>
+              <i class="fa-solid fa-heart heart"></i>
             </div>
           </div>
         `
@@ -39,8 +40,8 @@ const MediaFactory = (photographer,photographerMedias) => {
           <div>
             <h5>${title}</h5>
             <div>
-              <div>${likes}</div>
-              <i class="fa-solid fa-heart" onclick="toggleLike(event)"></i>
+              <p>${likes}</p>
+              <i class="fa-solid fa-heart heart"></i>
             </div>
           </div>
         `
@@ -60,12 +61,4 @@ const MediaFactory = (photographer,photographerMedias) => {
   }
 
   return { mediaDisplay }
-}
-
-function toggleLike(event) {
-  let likeCounter = event.target.previousElementSibling
-  let totalLikes = document.getElementById('totalLikes')
-
-  likeCounter.innerHTML = Number(likeCounter.innerHTML) + 1;
-  totalLikes.innerHTML = Number(totalLikes.innerHTML) + 1;
 }

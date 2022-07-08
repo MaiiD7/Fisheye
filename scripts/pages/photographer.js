@@ -19,10 +19,29 @@ const displayPhotographerData = async (photographer, photographerMedia) => {
   mediaLightbox.lightboxData();
 }
 
+const getLikes = () => {
+  const hearts = document.querySelectorAll('.heart')
+  const totalLikes = document.getElementById('totalLikes')
+  hearts.forEach((heart) => {
+    let clicked = false;
+    heart.addEventListener('click', e => {
+      if (!clicked){
+        heart.previousElementSibling.innerHTML = Number(heart.previousElementSibling.innerHTML)+1;
+        totalLikes.innerHTML = Number(totalLikes.innerHTML) + 1;
+        clicked = true;
+      } else {
+        heart.previousElementSibling.innerHTML = Number(heart.previousElementSibling.innerHTML)-1;
+        totalLikes.innerHTML = Number(totalLikes.innerHTML) - 1;
+        clicked = false
+      }
+    })
+  })
+}
+
 const init = async () =>  {
   const {photographer, photographerMedia} = await getPhotographerData();
   displayPhotographerData(photographer, photographerMedia);
-  console.log(photographerMedia);
+  getLikes();
 }
 
 init();
