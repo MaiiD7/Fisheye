@@ -41,6 +41,9 @@ const getLikes = () => {
 const init = async () =>  {
   const {photographer, photographerMedia} = await getPhotographerData();
   displayPhotographerData(photographer, photographerMedia);
+  console.log(photographerMedia);
+  // const mediaData = MediaFactory(photographer,photographerMedia.slice(3));
+  // mediaData.mediaDisplay();
   getLikes();
 }
 
