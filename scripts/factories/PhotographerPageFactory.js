@@ -1,13 +1,10 @@
 const PhotographerPageFactory = (photographer, photographerMedia) => {
-
   const { name, id, city, country, tagline, price, portrait } = photographer;
   const picture = `assets/photographers/${portrait}`;
-  
-  const getPhotographerPageDOM = () => {
 
-    const header = document.querySelector('.photograph-header')
-    const contactName = document.getElementById('contact-name')
-    
+  const getPhotographerPageDOM = () => {
+    const header = document.querySelector(".photograph-header");
+    const contactName = document.getElementById("contact-name");
 
     header.innerHTML = `
       <article>
@@ -19,11 +16,9 @@ const PhotographerPageFactory = (photographer, photographerMedia) => {
       <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
   
       <img src="${picture}" alt="${name}">
-    `
-    contactName.innerHTML =name;
-  }
+    `;
+    contactName.innerHTML = name;
+  };
 
-  
-
-  return { getPhotographerPageDOM }
-}
+  return { getPhotographerPageDOM };
+};

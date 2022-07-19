@@ -1,13 +1,12 @@
 const PhotographersFactory = (data) => {
-    const { name, id, city, country, tagline, price, portrait } = data;
+  const { name, id, city, country, tagline, price, portrait } = data;
 
-    const picture = `assets/photographers/${portrait}`;
+  const picture = `assets/photographers/${portrait}`;
 
-    const getUserCardDOM =() => {
+  const getUserCardDOM = () => {
+    const section = document.createElement("section");
 
-        const section = document.createElement('section');
-
-        section.innerHTML = `
+    section.innerHTML = `
         <a id=${id} href="../../photographer.html?photographer-id=${id}">
             <article>
             <img src="${picture}" alt="${name}">
@@ -23,17 +22,16 @@ const PhotographersFactory = (data) => {
             ${price}/jour
             </span>
         </article>
-        `
+        `;
 
-        return (section);
-    }
+    return section;
+  };
 
-    const getPhotographerPageDOM = () => {
+  const getPhotographerPageDOM = () => {
+    const header = document.querySelector("photograph-header");
 
-        const header = document.querySelector('photograph-header');
+    return header;
+  };
 
-        return (header);
-    }
-
-    return { name, picture, getUserCardDOM, getPhotographerPageDOM }
-}
+  return { name, picture, getUserCardDOM, getPhotographerPageDOM };
+};

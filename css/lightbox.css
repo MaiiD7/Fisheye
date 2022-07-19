@@ -14,13 +14,13 @@
   margin: 6vh auto;
 }
 
-#lightboxMedia img, 
+#lightboxMedia img,
 #lightboxMedia video {
   width: 50vw;
   height: 88vh;
   object-fit: cover;
   object-position: center;
-  box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.3);
 }
 
 .close {
@@ -28,7 +28,7 @@
   top: 7vh;
   right: 20vw;
   font-size: 40px;
-  color: #911C1C;
+  color: #911c1c;
   cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
   top: 50vh;
   transform: translateY(-50%);
   font-size: 40px;
-  color: #911C1C;
+  color: #911c1c;
   cursor: pointer;
 }
 
@@ -56,5 +56,5 @@
   bottom: 1vh;
   left: 25vw;
   font-size: 20px;
-  color: #911C1C;
+  color: #911c1c;
 }

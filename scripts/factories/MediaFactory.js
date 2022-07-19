@@ -1,26 +1,30 @@
-const MediaFactory = (photographer,photographerMedias) => {
-  const main = document.getElementById('main');
-  const section = document.createElement('section');
-  const aside = document.createElement('aside');
-  const {name, price} = photographer;
+const MediaFactory = (photographer, photographerMedias) => {
+  const main = document.getElementById("main");
+  const aside = document.createElement("aside");
+  const { name, price } = photographer;
   let totalLikes = 0;
 
-  section.classList.add('medias-section')
-  aside.classList.add('infos')
+  if (document.contains(document.querySelector(".medias-section"))) {
+    document.querySelector(".medias-section").remove();
+  }
 
-  main.appendChild(section);
-  section.appendChild(aside);
+  aside.classList.add("infos");
 
   const mediaDisplay = () => {
+    const section = document.createElement("section");
+
+    section.classList.add("medias-section");
+    main.appendChild(section);
+    section.appendChild(aside);
 
     photographerMedias.forEach((photographerMedia) => {
-      const article = document.createElement('article');  
-      const {image, video, title, likes} = photographerMedia;
-      const firstName = name.substring(0,name.indexOf(' '));
+      const article = document.createElement("article");
+      const { image, video, title, likes } = photographerMedia;
+      const firstName = name.substring(0, name.indexOf(" "));
       let likeFlag = false;
-  
-      article.classList.add('media-container')
-     
+
+      article.classList.add("media-container");
+
       if (image) {
         article.innerHTML = `
           <img src="assets/images/${firstName}/${image}" alt="${image}" class="images">
@@ -31,7 +35,7 @@ const MediaFactory = (photographer,photographerMedias) => {
               <i class="fa-solid fa-heart heart"></i>
             </div>
           </div>
-        `
+        `;
       } else if (video) {
         article.innerHTML = `
           <video width="350" height="300" class="images">
@@ -44,21 +48,21 @@ const MediaFactory = (photographer,photographerMedias) => {
               <i class="fa-solid fa-heart heart"></i>
             </div>
           </div>
-        `
+        `;
       }
-  
+
       section.appendChild(article);
       totalLikes += likes;
-    })
-  
+    });
+
     aside.innerHTML = `
       <div>
         <p id="totalLikes">${totalLikes}</p>
         <i class="fa-solid fa-heart"></i>
       </div>
       <p>${price}€/jour</p>
-    `
-  }
+    `;
+  };
 
-  return { mediaDisplay }
-}
+  return { mediaDisplay };
+};

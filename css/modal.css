@@ -13,7 +13,7 @@
 
 .modal {
   border-radius: 5px;
-  background-color: #DB8876;
+  background-color: #db8876;
   width: 45vw;
   height: fit-content;
   display: flex;
@@ -53,7 +53,7 @@ form {
 }
 
 form label {
-  color: #312E2E;
+  color: #312e2e;
   font-size: 20px;
 }
 

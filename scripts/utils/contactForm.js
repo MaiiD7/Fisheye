@@ -1,13 +1,13 @@
 // Open and close the modal
 
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = "block";
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = "none";
 }
 
 // Select the form
@@ -36,7 +36,7 @@ validationArray = [
     err: "200 caractères maximum",
     input: form.message,
     regexp: RegExp("^[a-zA-Zéèï.;,:/?!¨^ùà ]{1,300}$"),
-  }
+  },
 ];
 
 // ***************** Input Validation Method ***************
@@ -48,27 +48,27 @@ const validate = (input, regexp) => regexp.test(input.value);
 
 // addEventListener to run the whole validation
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    validationFlag = true;
-    formData = new FormData();
-    // Validation Loop in validationArray
-    validationArray.forEach((el) => {
-      let small = el.input.nextElementSibling;
-      small.classList.remove("invalid");
-      small.innerHTML = "";
-      formData.append(el.input.name,el.input.value)
-      if (!validate(el.input, el.regexp)) {
-        small.innerHTML = el.err;
-        small.classList.add("invalid");
-        validationFlag = false;
-      }
-    });
-  
-    // Submit form if validated (log entries in console)
-    if (validationFlag) {
-      closeModal();
-      for (var entrie of formData.entries()) {
-        console.log(`${entrie[0]} : ${entrie[1]}`);
-      }
+  e.preventDefault();
+  validationFlag = true;
+  formData = new FormData();
+  // Validation Loop in validationArray
+  validationArray.forEach((el) => {
+    let small = el.input.nextElementSibling;
+    small.classList.remove("invalid");
+    small.innerHTML = "";
+    formData.append(el.input.name, el.input.value);
+    if (!validate(el.input, el.regexp)) {
+      small.innerHTML = el.err;
+      small.classList.add("invalid");
+      validationFlag = false;
+    }
+  });
+
+  // Submit form if validated (log entries in console)
+  if (validationFlag) {
+    closeModal();
+    for (var entrie of formData.entries()) {
+      console.log(`${entrie[0]} : ${entrie[1]}`);
+    }
   }
 });
