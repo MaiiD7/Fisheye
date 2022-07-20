@@ -4,12 +4,14 @@ const MediaFactory = (photographer, photographerMedias) => {
   const { name, price } = photographer;
   let totalLikes = 0;
 
+  // Clear the media section if needed (used when sorting medias)
   if (document.contains(document.querySelector(".medias-section"))) {
     document.querySelector(".medias-section").remove();
   }
 
   aside.classList.add("infos");
 
+  // Display the photographer medias in a section
   const mediaDisplay = () => {
     const section = document.createElement("section");
 
@@ -25,6 +27,7 @@ const MediaFactory = (photographer, photographerMedias) => {
 
       article.classList.add("media-container");
 
+      // Differenciate images and videos
       if (image) {
         article.innerHTML = `
           <img src="assets/images/${firstName}/${image}" alt="${image}" class="images">

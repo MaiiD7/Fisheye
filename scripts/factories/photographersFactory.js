@@ -1,8 +1,9 @@
 const PhotographersFactory = (data) => {
+  // Store data in variables
   const { name, id, city, country, tagline, price, portrait } = data;
-
   const picture = `assets/photographers/${portrait}`;
 
+  // Create the photographer card
   const getUserCardDOM = () => {
     const section = document.createElement("section");
 

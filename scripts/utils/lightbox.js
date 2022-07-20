@@ -12,12 +12,12 @@ function closeLightbox() {
   lightbox.style.display = "none";
 }
 
+// Runs when an image is clicked
 const Lightbox = (photographerMedias, photographer) => {
   const previous = document.querySelector(".previous");
   const next = document.querySelector(".next");
 
-  // Open when an image is clicked
-
+  // Get the media to display in lightbox using its path and index
   function getLightboxContent(index) {
     const { name } = photographer;
     const firstName = name.substring(0, name.indexOf(" "));
@@ -40,6 +40,7 @@ const Lightbox = (photographerMedias, photographer) => {
     displayLightbox();
   }
 
+  // Use previous functions and add navigation using event listeners
   const lightboxData = () => {
     let images = document.querySelectorAll(".images");
     let index = 0;
@@ -54,6 +55,7 @@ const Lightbox = (photographerMedias, photographer) => {
       });
     });
 
+    // Navigate on click
     previous.addEventListener("click", (e) => {
       if (index == 0) {
         index = photographerMedias.length - 1;
@@ -72,6 +74,7 @@ const Lightbox = (photographerMedias, photographer) => {
       getLightboxContent(index);
     });
 
+    // Navigate using the keyboard
     document.addEventListener("keydown", (e) => {
       const lightbox = document.getElementById("lightbox");
       if (lightbox.classList.contains("visible")) {

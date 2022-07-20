@@ -1,5 +1,7 @@
+// Get photographer id in url
 const id = window.location.search.substring(17);
 
+// Fetch data corresponding to the id in .json file
 const getPhotographerData = async () => {
   const data = await fetch("../data/photographers.json").then((res) =>
     res.json()
@@ -17,6 +19,7 @@ const getPhotographerData = async () => {
   };
 };
 
+// Display the photographer header, medias and media view (lightbox)
 const displayPhotographerData = async (photographer, photographerMedia) => {
   const photographerData = PhotographerPageFactory(photographer);
   const mediaData = MediaFactory(
@@ -29,6 +32,7 @@ const displayPhotographerData = async (photographer, photographerMedia) => {
   mediaLightbox.lightboxData();
 };
 
+// Manage the "like" feature
 const getLikes = () => {
   const hearts = document.querySelectorAll(".heart");
   const totalLikes = document.getElementById("totalLikes");
@@ -50,10 +54,12 @@ const getLikes = () => {
   });
 };
 
+// Run the other functions
 const init = async () => {
   const { photographer, photographerMedia } = await getPhotographerData();
   displayPhotographerData(photographer, photographerMedia);
   getLikes();
+  // Use to sort medias
   const sortMethod = SelectSortingMethod(photographer, photographerMedia);
   sortMethod.sortMedia();
 };

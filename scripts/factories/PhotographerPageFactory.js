@@ -1,7 +1,9 @@
 const PhotographerPageFactory = (photographer, photographerMedia) => {
+  // Store data in variables
   const { name, id, city, country, tagline, price, portrait } = photographer;
   const picture = `assets/photographers/${portrait}`;
 
+  // Creates the header of the photographer page
   const getPhotographerPageDOM = () => {
     const header = document.querySelector(".photograph-header");
     const contactName = document.getElementById("contact-name");

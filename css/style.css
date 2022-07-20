@@ -1,6 +1,10 @@
+/* Imported CSS */
+
 @import url("photographer.css");
 @import url("modal.css");
 @import url("lightbox.css");
+
+/* General Settings */
 
 * {
   margin: 0;
@@ -34,6 +38,8 @@ h1 {
   height: 50px;
   margin-left: 100px;
 }
+
+/* Home page style */
 
 .photographer_section {
   display: grid;

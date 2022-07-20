@@ -226,7 +226,7 @@ body {
   margin-left: 5px;
 }
 
-/* Responsivness of photographe header */
+/* Responsivness of photographe header on tablets */
 
 @media screen and (max-width: 1150px) {
   .photograph-header {

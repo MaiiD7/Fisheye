@@ -1,3 +1,4 @@
+// Fetch data from .json file
 const getPhotographers = async () => {
   const data = await fetch("../data/photographers.json").then((res) =>
     res.json()
@@ -9,6 +10,7 @@ const getPhotographers = async () => {
   };
 };
 
+// Display styled data in home page
 const displayData = async (photographers) => {
   const photographersSection = document.querySelector(".photographer_section");
 
@@ -19,8 +21,8 @@ const displayData = async (photographers) => {
   });
 };
 
+// Run the other functions
 const init = async () => {
-  // Récupère les datas des photographes
   const { photographers } = await getPhotographers();
   displayData(photographers);
 };

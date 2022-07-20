@@ -1,3 +1,7 @@
+/****** Style for the lightbox ******/
+
+/* Content */
+
 #lightbox {
   display: none;
   position: fixed;
@@ -22,6 +26,16 @@
   object-position: center;
   box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.3);
 }
+
+#title {
+  position: absolute;
+  bottom: 1vh;
+  left: 25vw;
+  font-size: 20px;
+  color: #911c1c;
+}
+
+/* Navigation */
 
 .close {
   position: absolute;
@@ -49,12 +63,4 @@
 
 .next {
   right: 20vw;
-}
-
-#title {
-  position: absolute;
-  bottom: 1vh;
-  left: 25vw;
-  font-size: 20px;
-  color: #911c1c;
 }
