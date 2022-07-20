@@ -15,17 +15,14 @@ const getPhotographerData = async () => {
 
   return {
     photographer: photographer,
-    photographerMedia: photographerMedia,
+    photographerMedia: photographerMedia.sort((a, b) => b.likes - a.likes),
   };
 };
 
 // Display the photographer header, medias and media view (lightbox)
 const displayPhotographerData = async (photographer, photographerMedia) => {
   const photographerData = PhotographerPageFactory(photographer);
-  const mediaData = MediaFactory(
-    photographer,
-    photographerMedia.sort((a, b) => b.likes - a.likes)
-  );
+  const mediaData = MediaFactory(photographer,photographerMedia);
   const mediaLightbox = Lightbox(photographerMedia, photographer);
   photographerData.getPhotographerPageDOM();
   mediaData.mediaDisplay();

@@ -26,12 +26,12 @@ const Lightbox = (photographerMedias, photographer) => {
 
     if (photographerMedias[index].image) {
       lightboxMedia.innerHTML = `
-      <img src="assets/images/${firstName}/${photographerMedias[index].image}" alt="${photographerMedias[index].image}" class="carousel">
+      <img src="assets/images/${firstName}/${photographerMedias[index].image}" alt="${photographerMedias[index].title}" class="carousel" id="media">
     `;
     } else {
       lightboxMedia.innerHTML = `
       <video width="350" height="300" controls class="carousel">
-       <source src="assets/images/${firstName}/${photographerMedias[index].video}" type="video/mp4" alt="${photographerMedias[index].video}">
+       <source src="assets/images/${firstName}/${photographerMedias[index].video}" type="video/mp4" alt="${photographerMedias[index].title}" id="media">
       </video>
       `;
     }
@@ -52,7 +52,19 @@ const Lightbox = (photographerMedias, photographer) => {
         });
 
         getLightboxContent(index);
+        document.getElementById('lightboxMedia').focus();
       });
+
+      image.addEventListener("keydown", e => {
+        if (image == document.activeElement && e.key == 'Enter'){
+          index = photographerMedias.findIndex((object) => {
+            return object.image == e.target.alt;
+          });
+  
+          getLightboxContent(index);
+          document.getElementById('lightbox').focus();
+        }
+      })
     });
 
     // Navigate on click
@@ -63,6 +75,7 @@ const Lightbox = (photographerMedias, photographer) => {
         index -= 1;
       }
       getLightboxContent(index);
+      document.getElementById('lightboxMedia').focus();
     });
 
     next.addEventListener("click", (e) => {
@@ -72,6 +85,7 @@ const Lightbox = (photographerMedias, photographer) => {
         index += 1;
       }
       getLightboxContent(index);
+      document.getElementById('lightboxMedia').focus();
     });
 
     // Navigate using the keyboard
@@ -86,6 +100,7 @@ const Lightbox = (photographerMedias, photographer) => {
               index += 1;
             }
             getLightboxContent(index);
+            document.getElementById('lightboxMedia').focus();
             break;
           case "ArrowLeft":
             if (index == 0) {
@@ -94,6 +109,7 @@ const Lightbox = (photographerMedias, photographer) => {
               index -= 1;
             }
             getLightboxContent(index);
+            document.getElementById('lightboxMedia').focus();
             break;
           case "Escape":
             closeLightbox();

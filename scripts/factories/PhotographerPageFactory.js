@@ -15,9 +15,9 @@ const PhotographerPageFactory = (photographer, photographerMedia) => {
         <p>${tagline}</p>
       </article>
 
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button class="contact_button" onclick="displayModal()" aria-label="Contactez Moi, lien vers formulaire de contact">Contactez-moi</button>
   
-      <img src="${picture}" alt="${name}">
+      <img src="${picture}" alt="${name}" tabindex="0">
     `;
     contactName.innerHTML = name;
   };

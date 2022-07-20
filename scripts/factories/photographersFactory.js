@@ -8,7 +8,7 @@ const PhotographersFactory = (data) => {
     const section = document.createElement("section");
 
     section.innerHTML = `
-        <a id=${id} href="../../photographer.html?photographer-id=${id}">
+        <a id=${id} href="../../photographer.html?photographer-id=${id}" aria-label='Lien ver la page de ${name}' >
             <article>
             <img src="${picture}" alt="${name}">
             <h2>${name}</h2>

@@ -30,25 +30,27 @@ const MediaFactory = (photographer, photographerMedias) => {
       // Differenciate images and videos
       if (image) {
         article.innerHTML = `
-          <img src="assets/images/${firstName}/${image}" alt="${image}" class="images">
+          <a>
+            <img src="assets/images/${firstName}/${image}" class="images" alt="${image}" aria-label="${title}, image" tabindex="0">
+          </a>
           <div>
             <h5>${title}</h5>
             <div>
-              <p>${likes}</p>
-              <i class="fa-solid fa-heart heart"></i>
+              <p tabindex="0" aria-label='${likes} likes'>${likes}</p>
+              <i class="fa-solid fa-heart heart" tabindex="0" aria-label="Bouton Like"></i>
             </div>
           </div>
         `;
       } else if (video) {
         article.innerHTML = `
-          <video width="350" height="300" class="images">
-           <source src="assets/images/${firstName}/${video}" type="video/mp4" alt="${video}">
+          <video width="350" height="300" class="images" aria-label="${title}, video" tabindex="0">
+           <source src="assets/images/${firstName}/${video}" type="video/mp4" >
           </video>
           <div>
             <h5>${title}</h5>
             <div>
-              <p>${likes}</p>
-              <i class="fa-solid fa-heart heart"></i>
+              <p tabindex="0" aria-label='${likes} likes'>${likes}</p>
+              <i class="fa-solid fa-heart heart" tabindex="0" aria-label="Bouton Like"></i>
             </div>
           </div>
         `;
@@ -60,10 +62,10 @@ const MediaFactory = (photographer, photographerMedias) => {
 
     aside.innerHTML = `
       <div>
-        <p id="totalLikes">${totalLikes}</p>
+        <p id="totalLikes" tabindex="0" aria-label="nombre total de likes: ${totalLikes}">${totalLikes}</p>
         <i class="fa-solid fa-heart"></i>
       </div>
-      <p>${price}€/jour</p>
+      <p tabindex="0" aria-label="prix journalier: ${price} euros">${price}€/jour</p>
     `;
   };
 

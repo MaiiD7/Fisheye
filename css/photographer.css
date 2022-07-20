@@ -61,6 +61,12 @@ body {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact_button:hover {
+  color: black;
+  background-color: #DB8876;
 }
 
 .photograph-header img {

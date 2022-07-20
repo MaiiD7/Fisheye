@@ -20,34 +20,35 @@
   <body>
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" alt="logo_fisheye" class="logo" />
+        <img src="assets/images/logo.png" alt="Fisheye Home Page" class="logo" />
       </a>
     </header>
     <main id="main">
       <div class="photograph-header"></div>
       <!-- Custom Select Button -->
-      <div class="selector">
-        <label for="selecField">Trier par</label>
-        <div name="selectField" id="selectField">
+      <div class="selector" tabindex="0" aria-labelledby="sorted selectField">
+        <label for="selecField" id="sorted">Trier par</label>
+        <div name="selectField" id="selectField" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0">
           <p id="selectText">Popularité</p>
           <i class="fa-solid fa-angle-down arrow"></i>
         </div>
         <ul id="list" class="hide">
-          <li class="options">Date</li>
-          <li class="options">Titre</li>
+          <li class="options" tabindex="0" aria-label="trier par date">Date</li>
+          <li class="options" tabindex="0" aria-label="trier par titre">Titre</li>
         </ul>
       </div>
     </main>
     <!-- Contact Form -->
-    <div id="contact_modal">
+    <div id="contact_modal" tabindex="0" aria-labelledby="contact contact-name">
       <div class="modal">
         <header>
-          <h2>Contactez-moi</h2>
+          <h2 id="contact">Contactez-moi</h2>
           <h2 id="contact-name"></h2>
           <img
             src="assets/icons/close.svg"
-            alt="closing_cross"
+            alt="Fermer le formulaire de contact"
             onclick="closeModal()"
+            tabindex="0"
           />
         </header>
         <form
@@ -73,7 +74,7 @@
             <small></small>
           </div>
           <div class="formData">
-            <label>Votre message</label>
+            <label for="message">Votre message</label>
             <textarea type="text" id="message" name="message" maxlength="300">
             </textarea>
             <small></small>
@@ -83,11 +84,11 @@
       </div>
     </div>
     <!-- Lightbox -->
-    <div id="lightbox">
-      <div id="lightboxMedia"></div>
-      <i class="fa-solid fa-xmark close" onclick="closeLightbox()"></i>
-      <i class="fa-solid fa-angle-left previous"></i>
-      <i class="fa-solid fa-angle-right next"></i>
+    <div id="lightbox" role="dialog" aria-label="vue de l'image agrandie" tabindex="0">
+      <div id="lightboxMedia" tabindex="0" aria-labelledby="carousel"></div>
+      <i class="fa-solid fa-angle-left previous" tabindex="0" aria-label="image précédente"></i>
+      <i class="fa-solid fa-angle-right next" tabindex="0" aria-label="image suivante"></i>
+      <i class="fa-solid fa-xmark close" onclick="closeLightbox()" tabindex="0" aria-label="Fermer la boîte de dialogue"></i>
       <div id="title"></div>
     </div>
     <script src="scripts/pages/photographer.js"></script>
