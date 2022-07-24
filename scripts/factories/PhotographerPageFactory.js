@@ -1,6 +1,6 @@
-const PhotographerPageFactory = (photographer, photographerMedia) => {
+const PhotographerPageFactory = (photographer) => {
   // Store data in variables
-  const { name, id, city, country, tagline, price, portrait } = photographer;
+  const { name, city, country, tagline, portrait } = photographer;
   const picture = `assets/photographers/${portrait}`;
 
   // Creates the header of the photographer page

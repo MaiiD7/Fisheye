@@ -23,7 +23,6 @@ const MediaFactory = (photographer, photographerMedias) => {
       const article = document.createElement("article");
       const { image, video, title, likes } = photographerMedia;
       const firstName = name.substring(0, name.indexOf(" "));
-      let likeFlag = false;
 
       article.classList.add("media-container");
 
