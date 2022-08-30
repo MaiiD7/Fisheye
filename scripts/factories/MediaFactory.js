@@ -35,8 +35,8 @@ const MediaFactory = (photographer, photographerMedias) => {
           <div>
             <h5>${title}</h5>
             <div>
-              <p tabindex="0" aria-label='${likes} likes'>${likes}</p>
-              <i class="fa-solid fa-heart heart" tabindex="0" aria-label="Bouton Like"></i>
+              <p aria-label='${likes} likes'>${likes}</p>
+              <i class="fa-solid fa-heart heart" aria-label="Bouton Like"></i>
             </div>
           </div>
         `;
@@ -48,8 +48,8 @@ const MediaFactory = (photographer, photographerMedias) => {
           <div>
             <h5>${title}</h5>
             <div>
-              <p tabindex="0" aria-label='${likes} likes'>${likes}</p>
-              <i class="fa-solid fa-heart heart" tabindex="0" aria-label="Bouton Like"></i>
+              <p aria-label='${likes} likes'>${likes}</p>
+              <i class="fa-solid fa-heart heart" aria-label="Bouton Like"></i>
             </div>
           </div>
         `;

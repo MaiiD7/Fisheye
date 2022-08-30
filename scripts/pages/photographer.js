@@ -35,7 +35,7 @@ const getLikes = () => {
   const totalLikes = document.getElementById("totalLikes");
   hearts.forEach((heart) => {
     let clicked = false;
-    heart.addEventListener("click", (e) => {
+    heart.addEventListener("click", () => {
       if (!clicked) {
         heart.previousElementSibling.innerHTML =
           Number(heart.previousElementSibling.innerHTML) + 1;

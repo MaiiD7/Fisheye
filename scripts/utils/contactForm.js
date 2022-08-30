@@ -1,23 +1,47 @@
 // Open and close the modal
 
+const modal = document.getElementById("contact_modal");
+
 function displayModal() {
-  const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
   document.getElementById("contact_modal").focus()
 }
 
 function closeModal() {
-  const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
 }
+
+// Closing modal with keyboard
+document.addEventListener('keydown', (e) => {
+  if (e.key == 'Escape') {
+    closeModal();
+    document.querySelector('.contact_button').focus();
+  }
+})
 
 // Select the form
 const form = document.querySelector("#form");
 
+
+// Trap focus in modal
+modal.addEventListener('keydown', (e) => {
+  const keyboardfocusableElements = modal.querySelectorAll(
+    'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+  )
+
+  if (e.key === "Tab" && e.target.classList.contains('contact_button')) {
+    e.preventDefault();
+    keyboardfocusableElements[0].focus();
+  } else if (e.shiftKey && e.key === "Tab" && e.target.id === 'close_modal') {
+    e.preventDefault();
+    keyboardfocusableElements[keyboardfocusableElements.length - 1].focus();
+  } 
+})
+
 // *********** Array of objects to be validated *************
 
 // Objects in array are made of an error message, the input concerned and the RegExp to be validated
-validationArray = [
+const validationArray = [
   {
     err: "Prénom non-valide ✘",
     input: form.first,
@@ -50,8 +74,8 @@ const validate = (input, regexp) => regexp.test(input.value);
 // addEventListener to run the whole validation
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  validationFlag = true;
-  formData = new FormData();
+  let validationFlag = true;
+  let formData = new FormData();
   // Validation Loop in validationArray
   validationArray.forEach((el) => {
     let small = el.input.nextElementSibling;

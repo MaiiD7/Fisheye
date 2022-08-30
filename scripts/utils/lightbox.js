@@ -68,7 +68,7 @@ const Lightbox = (photographerMedias, photographer) => {
     });
 
     // Navigate on click
-    previous.addEventListener("click", (e) => {
+    previous.addEventListener("click", () => {
       if (index == 0) {
         index = photographerMedias.length - 1;
       } else {
@@ -78,7 +78,7 @@ const Lightbox = (photographerMedias, photographer) => {
       document.getElementById('lightboxMedia').focus();
     });
 
-    next.addEventListener("click", (e) => {
+    next.addEventListener("click", () => {
       if (index == photographerMedias.length - 1) {
         index = 0;
       } else {
@@ -113,6 +113,7 @@ const Lightbox = (photographerMedias, photographer) => {
             break;
           case "Escape":
             closeLightbox();
+            images[index].focus();
             break;
         }
       }

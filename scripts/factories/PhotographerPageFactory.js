@@ -11,7 +11,7 @@ const PhotographerPageFactory = (photographer) => {
     header.innerHTML = `
       <article>
         <h1>${name}</h1>
-        <h3>${city}, ${country}</h3>
+        <h2>${city}, ${country}</h2>
         <p>${tagline}</p>
       </article>
 

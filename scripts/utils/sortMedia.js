@@ -18,7 +18,7 @@ const toggleOptions = () => {
   }
 };
 
-selectField.addEventListener("click", (e) => {
+selectField.addEventListener("click", () => {
   toggleOptions();
 });
 selectField.addEventListener("keydown", (e) => {
@@ -64,7 +64,7 @@ const toggleSortMethod = (photographer, photographerMedia, option) => {
 const SelectSortingMethod = (photographer, photographerMedia) => {
   const sortMedia = () => {
     options.forEach((option) => {
-      option.addEventListener("click", (e) => {
+      option.addEventListener("click", () => {
         toggleSortMethod(photographer, photographerMedia, option)
         option.setAttribute('aria-label',`trier par ${option.innerHTML}`)
       })

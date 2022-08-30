@@ -26,7 +26,7 @@
     <main id="main">
       <div class="photograph-header"></div>
       <!-- Custom Select Button -->
-      <div class="selector" tabindex="0" aria-labelledby="sorted selectField">
+      <div class="selector" aria-labelledby="sorted selectField">
         <label for="selecField" id="sorted">Trier par</label>
         <div name="selectField" id="selectField" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0">
           <p id="selectText">Popularité</p>
@@ -42,10 +42,11 @@
     <div id="contact_modal" tabindex="0" aria-labelledby="contact contact-name">
       <div class="modal">
         <header>
-          <h2 id="contact">Contactez-moi</h2>
-          <h2 id="contact-name"></h2>
+          <h3 id="contact">Contactez-moi</h3>
+          <h3 id="contact-name"></h3>
           <img
             src="assets/icons/close.svg"
+            id="close_modal"
             alt="Fermer le formulaire de contact"
             onclick="closeModal()"
             tabindex="0"
